@@ -121,21 +121,21 @@ section .btntwo {
 
 @keyframes changetext {
   0% {
-    content: "Darjeeling";
+    content: "Astrology";
   }
   20% {
-    content: "Agra";
+    content: "Classical Physics";
   }
   35% {
-    content: "Jaipur";
+    content: "Quantum Physics";
   }
   60% {
-    content: "kerala";
+    content: "Chemistry";
   }
   80% {
-    content: "delhi";
+    content: "Phisiology";
   }
   100% {
-    content: "Mumbai";
+    content: "Curiosity";
   }
 }
