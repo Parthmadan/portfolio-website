@@ -121,7 +121,11 @@ section .btntwo {
 
 @keyframes changetext {
   0% {
+<<<<<<< HEAD
     content: "Astrology";
+=======
+    content: "Astronomy";
+>>>>>>> ebf55a525f596b87b0f0d2fee9b118529a980f9a
   }
   20% {
     content: "Classical Physics";
@@ -133,7 +137,11 @@ section .btntwo {
     content: "Chemistry";
   }
   80% {
+<<<<<<< HEAD
     content: "Phisiology";
+=======
+    content: "Philosphy";
+>>>>>>> ebf55a525f596b87b0f0d2fee9b118529a980f9a
   }
   100% {
     content: "Curiosity";
