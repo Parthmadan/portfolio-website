@@ -208,6 +208,37 @@
                     <div class="detail-v1">
                       <span class="detail-label">1)Semi-conductor diode</span>
                       <p>Practice questions after completion of diode.</p>
+                      <form id="password-form">
+                <label for="password">Enter Password:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Access Notes</button>
+            </form>
+                      <div id="notes-content" style="display:none;">
+                <h3>Available Notes:</h3>
+                <ul>
+                    <li><a href="notes/physics_notes.pdf" download>Physics Notes</a></li>
+                    <li><a href="notes/coding_notes.pdf" download>Coding Notes</a></li>
+                </ul>
+                <button onclick="purchaseNotes()">Purchase Notes</button>
+            </div>
+
+                       <script>
+        document.getElementById('password-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            if (password === 'secure123') {
+                document.getElementById('notes-content').style.display = 'block';
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        });
+
+        function purchaseNotes() {
+            alert('Redirecting to payment gateway...');
+            window.location.href = 'purchase_page.html';
+        }
+    </script>
+                      
                       <p><a href="sunfuel.html"> Read more...</a></p>
                     </div>
                   </div>
