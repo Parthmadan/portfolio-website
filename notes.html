@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#physics">Physics</a></li>
+                <li><a href="#bodybuilding">Bodybuilding</a></li>
+                <li><a href="#coding">Coding</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#notes">Notes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Welcome to My Website</h1>
+        </section>
+
+        <section id="physics">
+            <h2>Physics</h2>
+            <p>Content related to physics goes here.</p>
+        </section>
+
+        <section id="bodybuilding">
+            <h2>Bodybuilding</h2>
+            <p>Content related to bodybuilding goes here.</p>
+        </section>
+
+        <section id="coding">
+            <h2>Coding</h2>
+            <p>Content related to coding goes here.</p>
+        </section>
+
+        <section id="blogs">
+            <h2>Blogs</h2>
+            <p>Blog content goes here.</p>
+        </section>
+
+        <section id="notes">
+            <h2>Downloadable Notes</h2>
+            <form id="password-form">
+                <label for="password">Enter Password:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Access Notes</button>
+            </form>
+            <div id="notes-content" style="display:none;">
+                <h3>Available Notes:</h3>
+                <ul>
+                    <li><a href="notes/physics_notes.pdf" download>Physics Notes</a></li>
+                    <li><a href="notes/coding_notes.pdf" download>Coding Notes</a></li>
+                </ul>
+                <button onclick="purchaseNotes()">Purchase Notes</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Website</p>
+    </footer>
+
+    <script>
+        document.getElementById('password-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            if (password === 'secure123') {
+                document.getElementById('notes-content').style.display = 'block';
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        });
+
+        function purchaseNotes() {
+            alert('Redirecting to payment gateway...');
+            window.location.href = 'purchase_page.html';
+        }
+    </script>
+</body>
+
+</html>
