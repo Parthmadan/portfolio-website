@@ -269,22 +269,7 @@
                 <button onclick="purchaseNotes()">Purchase Notes</button>
             </div>
 
-                       <script>
-        document.getElementById('password-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const password = document.getElementById('password').value;
-            if (password === 'parth') {
-                document.getElementById('notes-content').style.display = 'block';
-            } else {
-                alert('Incorrect password. Please try again.');
-            }
-        });
-
-        function purchaseNotes() {
-            alert('Redirecting to payment gateway...');
-            window.location.href = 'payments.html';
-        }
-    </script>
+                     
                       
                       <p><a href="#"> Read more...</a></p>
                     </div>
@@ -354,6 +339,36 @@
 
   <script src="js/scripts-dist.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    async function hashPassword(password) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+    }
+
+    document.getElementById('password-form').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const password = document.getElementById('password').value;
+        const hashedInput = await hashPassword(password);
+
+        // Precomputed hash of the correct password (SHA-256 of "parth")
+        const storedHash = "c945a6fe68d9e1956ff22f1f8b1c79c3b8c29b2a45ee9470f62f4f4f1d9b6a6b";
+
+        if (hashedInput === storedHash) {
+            document.getElementById('notes-content').style.display = 'block';
+        } else {
+            alert('Incorrect password. Please try again.');
+        }
+    });
+
+    function purchaseNotes() {
+        alert('Redirecting to payment gateway...');
+        window.location.href = 'payments.html';
+    }
+</script>
+
 
 
 </body>
